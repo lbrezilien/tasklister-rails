@@ -1,0 +1,5 @@
+<li>
+  <%= task.description %><br>
+  <strong>priority: </strong><%= task.priority %><br>
+  <%= link_to "done", task_path(task), method: 'delete' %>
+</li>
