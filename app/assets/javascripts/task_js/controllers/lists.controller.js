@@ -14,43 +14,22 @@ function ListsController(){
 
 
   this.$wrapper = $('#wrapper')
-    // // $('#add_list [value="(+) add"]').click(function(event){
-    // //   event.preventDefault()
-    // //   $('#add_task').show();
-    // //   var listTitle = $('#list_title').val()
-    // //   var newList = new List(listTitle)
-    //
-    //
-    //
-    // })
-
-
-
-
 
 
     this.init = function(){
-        this.$addTaskForm.hide()
-        $('#add_list').submit(function(event){
-              event.preventDefault()
-              $('#add_task').show()
-              var listTitle = $('#list_title').val()
-              var newList = new List(listTitle)
+        this.$addTaskForm.hide();
 
+        $('.submit_button').ajaxSuccess(function(e, data, status, xhr){
+          $('#new_task').show();
+          debugger;
+          var listTitle = $('#list_title').val();
+          var newList = new List(listTitle);
 
-              $('.destroy-list').click(function(event){
-                        event.preventDefault()
-
-                        $(this).parent().parent().remove();
-
-                      });
-
-            });
-
-
-
-
-
+          $('.destroy-list').click(function(event){
+            event.preventDefault();
+            $(this).parent().parent().remove();
+          });
+        });
     }
 
 };

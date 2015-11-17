@@ -1,15 +1,16 @@
 class ListsController < ApplicationController
 
-
+  def index
+    @list = List.all
+  end
 
   def new
-      @list = List.new
-
+    @list = List.new
   end
 
   def create
-      @list = List.create(list_params)
-      redirect_to @list
+    @list = List.create(list_params)
+    render partial: 'list', locals: { list: @list }
   end
 
   def show

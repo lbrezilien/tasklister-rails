@@ -1,7 +1,7 @@
 
 <h1>My Todos</h1>
 
- <%= form_for Task.new do |f| %>
+ <%= form_for Task.new, remote: true do |f| %>
    <div class="form-group">
      <%= f.text_field :description, placeholder:
      "what needs doing?" %>
@@ -14,6 +14,7 @@
    <div class="form-group">
    <%= f.submit %>
    </div>
+
  <% end %>
 
  <ul>
@@ -21,6 +22,6 @@
  <% @tasks.each do |task| %>
       <%= render partial:'task', locals: {task: task} %>
  <% end %>
+<% end %>
 
-  <%end%>
  </ul>

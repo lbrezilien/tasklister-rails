@@ -3,20 +3,14 @@
     <h1>my task list</h1>
 
 
- <%= form_for List.new do |f| %>
+ <%= form_for List.new, remote: true do |f| %>
  <label for="list_title">Add a new list:</label>
    <%= f.label :title %>
    <%= f.text_field :title %>
-   <%= f.submit value: "(+) add"%>
+   <%= f.submit value: "(+) add", class: 'submit_button'%>
  <% end %>
 
-
-      <!-- <label for="list_title">Add a new list:</label>
-      <input type="text" id="list_title" name="list_title" placeholder="title">
-      <input type="submit" value="(+) add">
-    </form> -->
-
-  <%= form_for Task.new do |f| %>
+  <%= form_for Task.new, remote: true do |f| %>
   <label for="select_list">Select List:</label>
     <%= select('Task', 'List_id', List.all.each{|l| l.title })  %>
     <%= f.label :description %>
