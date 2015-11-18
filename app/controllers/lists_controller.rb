@@ -9,8 +9,9 @@ class ListsController < ApplicationController
   end
 
   def create
+    raise
     @list = List.create(list_params)
-    render partial: 'list', locals: { list: @list }
+    render partial: 'lists\list', locals: { list: @list }
   end
 
   def show
